@@ -28,6 +28,7 @@ dependencyResolutionManagement {
     }
 }
 
-include(":architecture-sample:shared")
+include(":architecture-navigation")
 include(":architecture-sample:sample-android")
 include(":architecture-sample:sample-desktop")
+include(":architecture-sample:shared")

@@ -43,5 +43,6 @@ kotlin {
 dependencies {
     implementation(projects.architectureSample.shared)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.koin.android)
     implementation(compose.uiTooling)
 }

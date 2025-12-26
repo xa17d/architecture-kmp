@@ -5,3 +5,4 @@
 <p align="center">A scalable architecture pattern for Kotlin Multiplatform apps, focusing on Dependency Injection and Navigation.</p>
 <p align=center><i>Guiding Principles:</i> Encapsulation, maintainability, and testability.</p>
 
+🚧 Experimental / work in progress.
