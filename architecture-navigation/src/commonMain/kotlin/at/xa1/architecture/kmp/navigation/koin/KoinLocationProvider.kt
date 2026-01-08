@@ -10,6 +10,7 @@ import at.xa1.architecture.kmp.navigation.Location
 import at.xa1.architecture.kmp.navigation.LocationId
 import at.xa1.architecture.kmp.navigation.LocationProvider
 import at.xa1.architecture.kmp.navigation.NavigationEntry
+import at.xa1.architecture.kmp.navigation.Navigator
 import at.xa1.architecture.kmp.navigation.Route
 import org.koin.compose.getKoin
 import org.koin.core.module.KoinDslMarker
@@ -68,11 +69,13 @@ class LocationDefinition(
         factory: () -> Coordinator,
     ) {
         target.register(routeType) { navigationEntry ->
+            val navigator = DefaultNavigator()
+            scope.declare(navigator, secondaryTypes = listOf(Navigator::class), holdInstance = true) // TODO don't declare globally in scope.
             val coordinator = factory()
             CoordinatorLocation(
                 id = LocationId.new(),
                 metadata = navigationEntry.metadata,
-                navigator = DefaultNavigator(),
+                navigator = navigator,
                 route = navigationEntry.route,
                 coordinator = coordinator,
             )

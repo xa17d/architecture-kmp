@@ -76,6 +76,8 @@ fun NavDisplay(
         }
     }
 
+    println(">>> ${backStack.value}")
+
     NavDisplay(
         backStack = backStack.value,
         // TODO? onBack = { backStack.removeLastOrNull() },
@@ -93,7 +95,7 @@ fun NavDisplay(
         entryProvider = { location ->
             NavEntry(
                 key = location,
-                contentKey = location.id,
+                contentKey = location.id.toString(),
                 metadata = location.metadata,
                 content = when (location) { // TODO move out of lambda
                     is ComposeLocation -> {
